@@ -15,6 +15,7 @@ body {
 
 #nav-button {
   float: right;
+  margin-top: 5px;
 }
 
 .modal-body {
@@ -33,6 +34,14 @@ body {
   margin-right: 20%;
   margin-top: 10%;
 };
+
+.visit-page {
+  display: none;
+}
+
+.visit-listing {
+  display: inline-block;
+}
 
 .all-pages {
   clear: both;

@@ -6,7 +6,7 @@
 // use require without a reference to ensure a file is bundled
 
 // const api = require('./api');
-const auth = require('./auth');
+const auth = require('./auth/auth');
 
 $(() => {
   auth.addHandlers();

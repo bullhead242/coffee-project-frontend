@@ -1,5 +1,5 @@
 'use strict';
-const getFormFields = require(`../../lib/get-form-fields`);
+const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui.js');
 
@@ -22,7 +22,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
-
   api.changePassword(data)
     .done(ui.changePasswordSuccess)
     .fail(ui.failure);
@@ -37,15 +36,11 @@ const onSignOut = function (event) {
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
-  $('.sign-in').on('submit', onSignIn);
+  $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
 };
 
 module.exports = {
-  onSignUp,
-  onSignIn,
-  onChangePassword,
-  onSignOut,
   addHandlers,
 };

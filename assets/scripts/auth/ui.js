@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('../app');
+const app = require('../../app');
 const api = require('./api');
 
 const failure = () => {
@@ -12,9 +12,11 @@ const hideModal = function (){
 };
 
 const signInSuccess = (data) => {
+  event.preventDefault();
   app.user = data.user;
   hideModal()
-  $("#sign-in-button").text(app.user.email);
+  entryToVisits();
+  $("#nav-button").text(app.user.email);
   $(".nav-messages").text(app.user.email + " is logged in");
 };
 
@@ -22,7 +24,8 @@ const signUpSuccess = (data) => {
   event.preventDefault();
   app.user = data.user;
   hideModal();
-  $("#sign-in-button").text(app.user.email);
+  entryToVisits();
+  $("#nav-button").text(app.user.email);
   $(".nav-messages").text(app.user.email + " signed up/ logged in");
 };
 
@@ -32,9 +35,15 @@ const changePasswordSuccess = () => {
 };
 
 const signOutSuccess = () => {
+  $(".nav-messages").text(app.user.email + " signed out");
+  $("#nav-button").text("sign in/ sign up");
   app.user = null;
   hideModal();
-  $("#messages").text(app.user.email + " signed out");
+};
+
+const entryToVisits = () => {
+  $(".entry-page").hide(800);
+  $(".visit-page").show(800);
 };
 
 module.exports = {

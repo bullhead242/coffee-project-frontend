@@ -1,2 +1,30 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'colors';
+
+
+body {
+  background-color: $background-purple;
+  color: $text-offwhite;
+}
+
+.nav-messages {
+  float: left;
+  position: fixed;
+}
+
+#nav-sign-in {
+  float: right;
+}
+
+.modal-body {
+  background-color: $text-offwhite;
+  color: $background-purple;
+}
+
+.all-pages {
+  clear: both;
+  margin-top: 40px;
+  position: absolute;
+  width: 90%;
+}

@@ -13,7 +13,7 @@ body {
   position: fixed;
 }
 
-#nav-sign-in {
+#nav-button {
   float: right;
 }
 
@@ -21,6 +21,18 @@ body {
   background-color: $text-offwhite;
   color: $background-purple;
 }
+
+.entry-page h1 {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 20%;
+}
+
+.entry-page p {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+};
 
 .all-pages {
   clear: both;

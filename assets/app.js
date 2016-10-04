@@ -1,6 +1,6 @@
 'use strict';
 
-const app = {
+let app = {
   host: 'http://localhost:3000',
 };
 

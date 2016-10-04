@@ -11,82 +11,90 @@
       <nav>
         <p class="nav-messages"> </p>
 
-      <button type="button" class="btn btn-default" data-toggle="modal"
-              data-target="#signInModal" id="nav-button"class="sign-in-button">sign in/ sign up</button>
-      <div class="modal fade" id="signInModal" tabindex="-1"
-              role="dialog" aria-labelledby="signInModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"
-                aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
+        <button type="button" class="btn btn-default sign-in-button" data-toggle="modal"
+        data-target="#signInModal" id="nav-button">sign in/ sign up</button>
 
-            <div class="modal-body">
-              <form name="sign-up" id="sign-up">
-                <fieldset>
-                  <legend>Sign Up</legend>
-                  <input type="text"  name="credentials[email]" placeholder="Email">
-                  <input type="password" name="credentials[password]" placeholder="Password">
-                  <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                  <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
-                </fieldset>
-              </form>
-              <form name="sign-in" id="sign-in">
-                <fieldset>
-                  <legend>Sign in</legend>
-                  <input type="text"  name="credentials[email]" placeholder="Email">
-                  <input type="password" name="credentials[password]" placeholder="Password">
-                  <input type="submit" name="submit" value="Sign in!" class="btn btn-primary">
-                </fieldset>
-              </form>
-              <form id="change-password">
-                <fieldset>
-                  <legend>Change Password</legend>
-                  <input type="password"  name="passwords[old]" placeholder="Old Password">
-                  <input type="password" name="passwords[new]" placeholder="New Password">
-                  <input type="submit" name="submit" value="Change Password" class="btn btn-primary">
-                </fieldset>
-              </form>
-              <form id="sign-out">
-                <fieldset>
-                  <legend>Sign Out</legend>
-                  <input type="submit" name="submit" value="OUT" class="btn btn-primary">
-                </fieldset>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+        <button type="button" class="btn btn-default btn-lg" id="shops-button">shops</button>
+        <button type="button" class="btn btn-default btn-lg" id="visits-button">visits</button>
+
+
+      </nav>
 
       <div class="all-pages">
 
-        <div class="entry-page">
-
+        <div class="entry-page page">
           <h1>I hear you want some coffee?</h1>
-
           <p>
             <button type="button" class="btn btn-default btn-lg entry-button" data-toggle="modal"
                     data-target="#signInModal">YES COFFEE</button>
             <button type="button" class="btn btn-default btn-lg entry-button">nah i'm good</button>
           </p>
-
         </div>
 
-        <div class="visit-page">
+        <div class="visit-page page">
           <p class="visit-listing">
             Shop Visit #1 goes here!
-          <button type="button" class="btn btn-success">like</button>
-          <button type="button" class="btn btn-danger">dislike</button>
+            <button type="button" class="btn btn-success">like</button>
+            <button type="button" class="btn btn-danger">dislike</button>
+          </p>
+        </div>
 
-        </p>
+        <div class="shops-page page">
+          <ul id="shops-list">
+          </ul>
 
         </div>
 
       </div>
+
+      <div class="modal fade" id="signInModal" tabindex="-1"
+      role="dialog" aria-labelledby="signInModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+
+          <div class="modal-body">
+            <form name="sign-up" id="sign-up">
+              <fieldset>
+                <legend>Sign Up</legend>
+                <input type="text"  name="credentials[email]" placeholder="Email">
+                <input type="password" name="credentials[password]" placeholder="Password">
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
+              </fieldset>
+            </form>
+            <form name="sign-in" id="sign-in">
+              <fieldset>
+                <legend>Sign in</legend>
+                <input type="text"  name="credentials[email]" placeholder="Email">
+                <input type="password" name="credentials[password]" placeholder="Password">
+                <input type="submit" name="submit" value="Sign in!" class="btn btn-primary">
+              </fieldset>
+            </form>
+            <form id="change-password">
+              <fieldset>
+                <legend>Change Password</legend>
+                <input type="password"  name="passwords[old]" placeholder="Old Password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <input type="submit" name="submit" value="Change Password" class="btn btn-primary">
+              </fieldset>
+            </form>
+            <form id="sign-out">
+              <fieldset>
+                <legend>Sign Out</legend>
+                <input type="submit" name="submit" value="OUT" class="btn btn-primary">
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </body>
 </html>

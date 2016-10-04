@@ -7,7 +7,9 @@
 
 // const api = require('./api');
 const auth = require('./auth/auth');
+const shops = require('./shops/shops');
 
 $(() => {
   auth.addHandlers();
+  shops.addHandlers();
 });

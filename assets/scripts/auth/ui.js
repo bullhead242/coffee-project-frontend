@@ -2,6 +2,7 @@
 
 const app = require('../../app');
 const api = require('./api');
+const router = require('../router.js')
 
 const failure = () => {
   $(".nav-messages").modal("Ooopsy Daisy!");
@@ -15,8 +16,10 @@ const signInSuccess = (data) => {
   event.preventDefault();
   app.user = data.user;
   hideModal()
-  entryToVisits();
-  $("#nav-button").text(app.user.email);
+  router.hidePages();
+  router.showVisitsPage;
+  $("#user-button").text(app.user.email);
+  $("#visits-button").show();
   $(".nav-messages").text(app.user.email + " is logged in");
 };
 
@@ -24,8 +27,8 @@ const signUpSuccess = (data) => {
   event.preventDefault();
   app.user = data.user;
   hideModal();
-  entryToVisits();
-  $("#nav-button").text(app.user.email);
+  router.showVisitsPage();
+  $("#user-button").text(app.user.email);
   $(".nav-messages").text(app.user.email + " signed up/ logged in");
 };
 
@@ -36,7 +39,7 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
   $(".nav-messages").text(app.user.email + " signed out");
-  $("#nav-button").text("sign in/ sign up");
+  $("#user-button").text("sign in/ sign up");
   app.user = null;
   hideModal();
 };

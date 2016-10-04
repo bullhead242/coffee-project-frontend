@@ -1,7 +1,7 @@
 'use strict';
 const api = require('./api');
 const ui = require('./ui');
-const router = require('../router')
+const router = require('../router');
 
 // const handleShopsList = function(data) {
 //       console.log(data);
@@ -19,7 +19,7 @@ const handleShopButtonClick = function (event) {
 };
 
 const addHandlers = () => {
-$('#shops-button').on('click', handleShopButtonClick);
+  $('#shops-button').on('click', handleShopButtonClick);
 };
 
 module.exports = {

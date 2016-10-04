@@ -8,14 +8,33 @@ body {
   color: $text-offwhite;
 }
 
-.nav-messages {
-  float: left;
-  position: fixed;
+nav {
+  height: 70px;
 }
 
-#nav-button {
+.nav-messages {
+  margin-left: 200px;
+  margin-top: 10px;
+  position: absolute;
+}
+
+#user-button {
   float: right;
-  margin-top: 5px;
+  margin-top: 10px;
+}
+
+#shops-button {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: absolute;
+}
+
+#visits-button {
+  display: none;
+  margin-left: 100px;
+  margin-top: 10px;
+  position: absolute;
 }
 
 .modal-body {
@@ -43,9 +62,14 @@ body {
   display: inline-block;
 }
 
+.shop-listing {
+  display: inline-block;
+  padding: 15px;
+}
+
 .all-pages {
   clear: both;
-  margin-top: 40px;
+  margin-top: 25px;
   position: absolute;
   width: 90%;
 }

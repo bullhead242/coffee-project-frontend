@@ -8,8 +8,10 @@
 // const api = require('./api');
 const auth = require('./auth/auth');
 const shops = require('./shops/shops');
+const visits = require('./visits/visits');
 
 $(() => {
   auth.addHandlers();
   shops.addHandlers();
+  visits.addHandlers();
 });

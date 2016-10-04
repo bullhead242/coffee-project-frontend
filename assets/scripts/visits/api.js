@@ -1,15 +1,17 @@
 'use strict';
-
+// const visits = require('./visits');
 const app = require('../../app');
 
-const createVisit = (data) => {
+const createVisit = (userId, selectedShopId, theyLikedIt) => {
+  debugger;
   return $.ajax({
     url: app.host + '/visits',
     method: 'POST',
-    data: data,
     headers: {
       Authorization: 'Token token=' + app.user.token,
-    },
+              },
+    data: { visit: {"user_id": userId, "shop_id": selectedShopId, "like": theyLikedIt}
+            }
   });
 };
 

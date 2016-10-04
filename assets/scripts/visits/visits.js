@@ -6,10 +6,11 @@ const router = require('../router');
 //handler for like / dislike / creation goes here
 function addEventHandlersToLikeButtons(event) {
   $('.like-button').click(function(event){
-  debugger;
-    const selectedShopId = event.target.parentElement.dataset.shop;
+  // debugger;
+    const selectedShopId = parseInt(event.target.parentElement.dataset.shop);
     const theyLikedIt = true;
-    api.createVisit({user_id: app.user.id, shop_id: selectedShopId, like: theyLikedIt})
+    let userId = parseInt(app.user.id);
+    api.createVisit(userId, selectedShopId, theyLikedIt)
       .done(function(data) {
         console.log(data);
       })
@@ -17,23 +18,30 @@ function addEventHandlersToLikeButtons(event) {
   });
 }
 
+function addEventHandlersToNewVisitButtons(event) {
+  $('.new-visit-button').click(function(event) {
+    const selectedShopId = event.target.parentElement.dataset.shop;
+    api.createVisit({user_id: app.user.id, shop_id: selectedShopId})
+      .done(function(data) {
+        console.log(data);
+      })
+      .fail();
+    });
+  }
+
 function addLikeButtonsToShops() {
-  $('.shop-listing').append('<button type="button" class="btn btn-success">like</button>');
+  $('.shop-listing').append('<button type="button" class="btn btn-success like-button">like</button>');
   addEventHandlersToLikeButtons();
 }
 
 function addNewVisitToShops() {
-  $('.shop-listing').append('<button type="button" class="btn btn-default"> visited </button>');
+  $('.shop-listing').append('<button type="button" class="btn btn-default new-visit-button"> visited </button>');
 }
 
 
 function addDislikeButtonsToShops() {
-  $('.shop-listing').append('<button type="button" class="btn btn-danger">dislike</button>');
+  $('.shop-listing').append('<button type="button" class="btn btn-danger dislike-button">dislike</button>');
 }
-//
-// const addHandlers = () => {
-//   $('.like-button').on('click', addEventHandlersToLikeButtons(event));
-// };
 
 const handleVisitsButtonClick = function (event) {
   event.preventDefault();
@@ -53,7 +61,9 @@ const handleVisitsButtonClick = function (event) {
 // };
 
 const addHandlers = () => {
-  $('#visits-button').on('click', handleVisitsButtonClick);
+  $('#load-visits-button').on('click', handleVisitsButtonClick);
+  $('.like-button').on('click', addEventHandlersToLikeButtons(event));
+  $('.new-visit-button').on('click', addEventHandlersToNewVisitButtons(event));
 };
 
 module.exports = {

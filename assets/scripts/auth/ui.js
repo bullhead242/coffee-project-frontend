@@ -19,7 +19,7 @@ const signInSuccess = (data) => {
   router.hidePages();
   router.showVisitsPage;
   $("#user-button").text(app.user.email);
-  $("#visits-button").show();
+  $("#load-visits-button").show();
   $(".nav-messages").text(app.user.email + " is logged in");
 };
 

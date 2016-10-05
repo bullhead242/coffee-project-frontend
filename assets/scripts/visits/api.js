@@ -14,7 +14,7 @@ const createVisit = (userId, selectedShopId, theyLikedIt) => {
   });
 };
 
-const likeOrDislikeVisit = userId, selectedShopId, theyLikedIt) => {
+const likeOrDislikeVisit = (userId, selectedShopId, theyLikedIt) => {
   return $.ajax({
     url: app.host + '/visits',
     method: 'PATCH',

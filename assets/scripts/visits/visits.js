@@ -6,65 +6,31 @@ const router = require('../router');
 
 //create new event with 'like' attribute = false
 function addEventHandlersToLikeButtons(event) {
-  $('.like-button').click(function(event){
-    let selectedShopId = parseInt(event.target.parentElement.dataset.shop);
-    let theyLikedIt = true;
-    let userId = parseInt(app.user.id);
-    api.createVisit(userId, selectedShopId, theyLikedIt)
-      .done(function(data) {
-        console.log(data);
-      })
-      .fail();
-  });
+  $('.like-button').click(visitLikeOrDislikeClick);
 }
-
-// posible refactoring of long functions
-// function visitLikeOrDislikeClick(event) => {
-//     const selectedShopId = parseInt(event.target.parentElement.dataset.shop);
-//     const theyLikedIt = true;
-//     let userId = parseInt(app.user.id);
-//     api.createVisit(userId, selectedShopId, theyLikedIt)
-//       .done(function(data) {
-//         console.log(data);
-//       })
-//       .fail();
-//   });
-// }
 
 // create new event with no 'like' attribute
 function addEventHandlersToNewVisitButtons(event) {
-  debugger;
-  $('.new-visit-button').click(function(event){
-    let selectedShopId = parseInt(event.target.parentElement.dataset.shop);
-    let theyLikedIt = true;
-    let userId = parseInt(app.user.id);
-    api.createVisit(userId, selectedShopId, theyLikedIt)
-      .done(function(data) {
-        console.log(data);
-      })
-      .fail();
-  });
+  $('.new-visit-button').click(visitLikeOrDislikeClick);
+  $('.like-button').show(300);
+  $('.dislike-button').show(300);
 }
-
-// from stack overflow to adapt to remedy events firing on page load
-// $(document).on('click', '#add', function (clickEvent) {
-//     // Update here !
-//     $.ajax...
-// });
-
 
 // create new event with 'like' attribute = false
 function addEventHandlersToDislikeButtons(event) {
-  $('.dislike-button').click(function(event){
-    debugger;
-    let selectedShopId = parseInt(event.target.parentElement.dataset.shop);
-    let theyLikedIt = true;
-    let userId = parseInt(app.user.id);
-    api.createVisit(userId, selectedShopId, theyLikedIt)
-      .done(function(data) {
-        console.log(data);
-      })
-      .fail();
+  $('.dislike-button').click(visitLikeOrDislikeClick);
+}
+
+function visitLikeOrDislikeClick(event) {
+  const selectedShopId = parseInt(event.target.parentElement.dataset.shop);
+  const theyLikedIt = true;
+  let userId = parseInt(app.user.id);
+  api.createVisit(userId, selectedShopId, theyLikedIt)
+  .done(function(data) {
+    $('.nav-messages').text('like = ' + theyLikedIt);
+  })
+  .fail(function(error) {
+    $('.nav-messages').text(error);
   });
 }
 
@@ -87,7 +53,12 @@ const handleVisitsButtonClick = function (event) {
   event.preventDefault();
   router.hidePages();
   router.showVisitsPage();
-};
+  api.getVisits()
+    .done(ui.displayVisits)
+    .fail(function(error) {
+      $('.nav-messages').text(error);
+    });
+  };
 
 // const handleShopButtonClick = function (event) {
 //   event.preventDefault();

@@ -58,17 +58,17 @@ nav {
   display: none;
 }
 
-// .like-button {
-  // display: none;
-// }
+.like-button {
+  display: none;
+}
 
 // .new-event-button {
 //
 // }
 
-// .dislike-button {
-  // display: none;
-// }
+.dislike-button {
+  display: none;
+}
 
 .visit-listing {
   display: inline-block;
@@ -77,6 +77,7 @@ nav {
 .shop-listing {
   display: inline-block;
   padding: 15px;
+  width: 70%;
 }
 
 .all-pages {

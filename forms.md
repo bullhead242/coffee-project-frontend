@@ -13,7 +13,7 @@ The object returned can be used to validate the form data.
 'use strict';
 
 const ajaxDefaults = {
-  url: 'http://localhost:3000',
+  url: 'https://fathomless-island-31867.herokuapp.com/',
 };
 
 const myRequest = (data, success, fail) => {

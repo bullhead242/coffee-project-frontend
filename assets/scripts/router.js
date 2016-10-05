@@ -12,8 +12,13 @@ const showVisitsPage = () => {
   $('.visits-page').show(800);
 };
 
+const leaveShopsPage = () => {
+  $('shops-list').clear();
+};
+
 module.exports = {
   hidePages,
   showShopsPage,
   showVisitsPage,
+  leaveShopsPage,
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('../../app');
-const visits = require('../visits/visits'); //update to visits.vists?
+const visits = require('../visits/visits');
 
 const displayShops = (data) => {
   event.preventDefault();
@@ -13,15 +13,6 @@ const displayShops = (data) => {
   visits.addNewVisitToShops();
   visits.addDislikeButtonsToShops();
 };
-
-// const signInSuccess = (data) => {
-//   event.preventDefault();
-//   app.user = data.user;
-//   hideModal()
-//   entryToVisits();
-//   $("#user-button").text(app.user.email);
-//   $(".nav-messages").text(app.user.email + " is logged in");
-// };
 
 module.exports = {
     displayShops,

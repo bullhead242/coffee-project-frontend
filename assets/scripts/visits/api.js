@@ -3,7 +3,6 @@
 const app = require('../../app');
 
 const createVisit = (userId, selectedShopId, theyLikedIt) => {
-  debugger;
   return $.ajax({
     url: app.host + '/visits',
     method: 'POST',
@@ -14,13 +13,6 @@ const createVisit = (userId, selectedShopId, theyLikedIt) => {
             }
   });
 };
-
-// const getShops = () => {
-//   return $.ajax({
-//     url: app.host + '/shops',
-//     method: 'GET',
-//   });
-// };
 
 module.exports = {
   createVisit,

@@ -403,7 +403,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(6);
-	var api = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./api\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var api = __webpack_require__(13);
 	var ui = __webpack_require__(14);
 	var router = __webpack_require__(8);
 
@@ -486,7 +486,66 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 13 */,
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	// const visits = require('./visits');
+
+	var app = __webpack_require__(6);
+
+	var createVisit = function createVisit(userId, selectedShopId, theyLikedIt) {
+	  return $.ajax({
+	    url: app.host + '/visits',
+	    method: 'POST',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    },
+	    data: { visit: { "user_id": userId, "shop_id": selectedShopId, "like": theyLikedIt }
+	    }
+	  });
+	};
+
+	var likeOrDislikeVisit = function likeOrDislikeVisit(userId, selectedShopId, theyLikedIt) {
+	  return $.ajax({
+	    url: app.host + '/visits',
+	    method: 'PATCH',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    },
+	    data: { visit: { "user_id": userId, "shop_id": selectedShopId, "like": theyLikedIt }
+	    }
+	  });
+	};
+
+	var getVisits = function getVisits() {
+	  return $.ajax({
+	    url: app.host + '/visits',
+	    method: 'GET', headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    }
+	  });
+	};
+
+	// const likeOrDislikeVisit = (userId, selectedShopId, theyLikedIt) => {
+	//   return $.ajax({
+	//     url: app.host + '/visits',
+	//     method: 'PAT',
+	//     headers: {
+	//       Authorization: 'Token token=' + app.user.token,
+	//               },
+	//     data: { visit: {"user_id": userId, "shop_id": selectedShopId, "like": theyLikedIt}
+	//             }
+	//   });
+	// };
+
+	module.exports = {
+	  createVisit: createVisit,
+	  getVisits: getVisits
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 

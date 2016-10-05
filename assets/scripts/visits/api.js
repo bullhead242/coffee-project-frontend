@@ -14,6 +14,18 @@ const createVisit = (userId, selectedShopId, theyLikedIt) => {
   });
 };
 
+const likeOrDislikeVisit = userId, selectedShopId, theyLikedIt) => {
+  return $.ajax({
+    url: app.host + '/visits',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+              },
+    data: { visit: {"user_id": userId, "shop_id": selectedShopId, "like": theyLikedIt}
+            }
+  });
+};
+
 const getVisits = () => {
   return $.ajax({
     url: app.host + '/visits',
